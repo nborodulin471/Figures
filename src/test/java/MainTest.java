@@ -5,10 +5,11 @@ import java.util.logging.*;
 public class MainTest {
 
     @Test
-    public void Log() {
+    public void testLog() {
         Logger log;
-        try (FileInputStream ins = new FileInputStream("log/logging.properties")) {
-            LogManager.getLogManager().readConfiguration(ins);
+        try {
+            LogManager.getLogManager().readConfiguration(
+                    Main.class.getResourceAsStream("logging.properties"));
             log = Logger.getLogger(Main.class.getName());
         } catch (Exception ignore) {
             ignore.printStackTrace();
@@ -32,7 +33,7 @@ public class MainTest {
         Main.main(args1);
 
         String[] args2 = new String[]{
-                "src/test/resources/notFound.txt"
+                "notFound.txt"
         };
         Main.main(args2);
 
@@ -43,29 +44,30 @@ public class MainTest {
 
         // valide file
         String[] args = new String[]{
-                "src/test/resources/testCircleValid.txt",
-                "src/test/resources/testCircleOut.txt"
+                MainTest.class.getResource("testCircleValid.txt").getPath(),
+                MainTest.class.getResource("testCircleOut.txt").getPath()
         };
         Main.main(args);
 
         // not valide file
         String[] args1 = new String[]{
-                "src/test/resources/testCircleNotValid.txt",
-                "src/test/resources/testCircleOut.txt"
+                MainTest.class.getResource("testCircleNotValid.txt").getPath(),
+                MainTest.class.getResource("testCircleOut.txt").getPath()
         };
         Main.main(args1);
 
         // not valide console
         String[] args2 = new String[]{
-                "src/test/resources/testCircleNotValid.txt"
+                MainTest.class.getResource("testCircleNotValid.txt").getPath()
         };
         Main.main(args2);
 
         // valide console
         String[] args3 = new String[]{
-                "src/test/resources/testCircleValid.txt"
+                MainTest.class.getResource("testCircleValid.txt").getPath()
         };
         Main.main(args3);
+
 
     }
 
@@ -74,27 +76,27 @@ public class MainTest {
 
         // valide file
         String[] args = new String[]{
-                "src/test/resources/testRectangleValid.txt",
-                "src/test/resources/testRectangleOut.txt"
+                MainTest.class.getResource("testRectangleValid.txt").getPath(),
+                MainTest.class.getResource("testRectangleOut.txt").getPath()
         };
         Main.main(args);
 
         // not valide file
         String[] args1 = new String[]{
-                "src/test/resources/testRectangleNotValid.txt",
-                "src/test/resources/testRectangleOut.txt"
+                MainTest.class.getResource("testRectangleNotValid.txt").getPath(),
+                MainTest.class.getResource("testRectangleOut.txt").getPath()
         };
         Main.main(args1);
 
         // not valide console
         String[] args2 = new String[]{
-                "src/test/resources/testRectangleNotValid.txt"
+                MainTest.class.getResource("testRectangleNotValid.txt").getPath()
         };
         Main.main(args2);
 
         // valide console
         String[] args3 = new String[]{
-                "src/test/resources/testRectangleValid.txt"
+                MainTest.class.getResource("testRectangleValid.txt").getPath()
         };
         Main.main(args3);
 
@@ -105,27 +107,27 @@ public class MainTest {
 
         // valide file
         String[] args = new String[]{
-                "src/test/resources/testTriangleValid.txt",
-                "src/test/resources/testTriangleOut.txt"
+                MainTest.class.getResource("testTriangleValid.txt").getPath(),
+                MainTest.class.getResource("testTriangleOut.txt").getPath()
         };
         Main.main(args);
 
         // not valide file
         String[] args1 = new String[]{
-                "src/test/resources/testTriangleNotValid.txt",
-                "src/test/resources/testTriangleOut.txt"
+                MainTest.class.getResource("testTriangleNotValid.txt").getPath(),
+                MainTest.class.getResource("testTriangleOut.txt").getPath()
         };
         Main.main(args1);
 
         // not valide console
         String[] args2 = new String[]{
-                "src/test/resources/testTriangleNotValid.txt"
+                MainTest.class.getResource("testTriangleNotValid.txt").getPath()
         };
         Main.main(args2);
 
         // valide console
         String[] args3 = new String[]{
-                "src/test/resources/testTriangleValid.txt"
+                MainTest.class.getResource("testTriangleValid.txt").getPath()
         };
         Main.main(args3);
 

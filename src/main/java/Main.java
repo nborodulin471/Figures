@@ -1,16 +1,15 @@
 import exception.FileNotValidException;
 import figures.*;
-
 import java.io.*;
 import java.util.logging.*;
 
 public class Main {
 
     private static Logger log;
-
     static {
-        try (FileInputStream ins = new FileInputStream("log/logging.properties")) {
-            LogManager.getLogManager().readConfiguration(ins);
+        try {
+            LogManager.getLogManager().readConfiguration(
+                    Main.class.getResourceAsStream("logging.properties"));
             log = Logger.getLogger(Main.class.getName());
         } catch (Exception ignore) {
             ignore.printStackTrace();
